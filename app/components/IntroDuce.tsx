@@ -6,7 +6,7 @@ import { FaArrowCircleRight } from "react-icons/fa";
 
 const IntroDuce = () => {
   return (
-    <section className='grid grid-cols-2'>
+    <section className='grid grid-cols-2 mt-4'>
         <div className='py-12'>
           <h1 className='text-4xl font-semibold'>
             Mọi thứ đều dễ dàng với <span className='text-amber-500'>Dream House</span>
@@ -17,7 +17,7 @@ const IntroDuce = () => {
           tốt nhất. Hãy để Dream House là đối tác đáng tin cậy trên hành trình chinh phục ước mơ của bạn!
           </p>
           <div className='flex gap-4 text-sm'>
-            <button className='bg-amber-500 flex gap-2 items-center text-white px-4 py-2 rounded-full'>
+            <button className='bg-primary flex gap-2 items-center text-white px-4 py-2 rounded-full'>
               Learn more
               <FaArrowCircleRight className="mt-1"/>  
             </button>
