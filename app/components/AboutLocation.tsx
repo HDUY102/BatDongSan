@@ -26,7 +26,7 @@ const AboutProperty = () => {
                 </div>
                 <div className='m-1'>
                     <p className='absolute text-white ml-2 mt-2'>TP. HCM</p>
-                    <Image className="rounded-lg" src={HCM} alt="bất động sản"/>
+                    <Image className="h-32 rounded-lg" src={HCM} alt="bất động sản"/>
                 </div>
                 <div className='m-1'>
                     <p className='absolute text-white ml-2 mt-2'>Hà Nội</p>
@@ -34,7 +34,7 @@ const AboutProperty = () => {
                 </div>
                 <div className='m-1'>
                     <p className='absolute text-white ml-2 mt-2 '>Hải Phòng</p>
-                    <Image  className='h-30 rounded-lg' src={HP} alt="bất động sản"/>
+                    <Image  className='h-32 rounded-lg' src={HP} alt="bất động sản"/>
                 </div>
             </div>
         </div>

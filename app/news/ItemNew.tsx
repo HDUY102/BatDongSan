@@ -8,15 +8,18 @@ const ItemNew = () => {
             <div>
                 <Image className='max-w-2 rounded-lg ml-4 mr-4' src={about1} alt="Dream House IntroDuce"></Image>
             </div>
-            <div className='mt-2'>
+            <div className='mt-2 max-w-xl'>
                 <div className='text-gray-500 left-0 text-xs text-left'>
                     <p>Ngày đăng</p>
                 </div>
-                <div className='text-black mt-4 justify-start hover:text-gray-500'>
+                <div className='text-black mt-4 text-2xl justify-start hover:text-gray-500'>
                     <h2>Tiêu đề</h2>
                 </div>
                 <div className='text-gray-500 mt-2 left-0 text-xs text-left'>
-                    <p>Nội Dung</p>
+                    <p> 
+                        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. 
+                        In deleniti eaque aut repudiandae et a id nisi.
+                    </p>
                 </div>
             </div>
         </div>

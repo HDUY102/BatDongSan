@@ -1,7 +1,7 @@
 import React from 'react'
 import gg from '@/app/img/gg.png'
 import Image from 'next/image'
-const page = () => {
+const Login = () => {
   return (
     <section className='mt-8'>
         <h1 className='text-center text-primary text-4xl mb-8'>LOGIN</h1>
@@ -28,4 +28,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Login

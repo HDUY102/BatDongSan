@@ -3,7 +3,7 @@ import IntroDuce from '../components/IntroDuce'
 import Image from 'next/image'
 import about from '@/app/img/about.jpg'
 import Footer from '../components/Footer'
-const page = () => {
+const About = () => {
   return (
     <section className='mt-8 text-center'>
         <IntroDuce/>
@@ -31,11 +31,11 @@ const page = () => {
             <h3 className='uppercase leading-4 text-gray-500 font-semibold'>Contact Us</h3>
             <h2 className='text-primary font-bold text-3xl italic'>DREAM HOUSE</h2>
         </div>
-        <a className="text-4xl" href='tel:+84.764.792.732'>+84.764.792.732</a>
-        <hr className='mb-2'/>
+        <a className="text-3xl" href='tel:+84.764.792.732'>+84.764.792.732</a>
+        <hr className='mb-4'/>
         <Footer/>
     </section>
   )
 }
 
-export default page
+export default About

@@ -3,7 +3,7 @@ import Image from 'next/image'
 import about1 from '@/app/img/about1.jpg'
 import ItemNew from './ItemNew'
 import Footer from '../components/Footer'
-const page = () => {
+const News = () => {
   return (
     <section>
         <div className='mt-8 text-center'>
@@ -28,4 +28,4 @@ const page = () => {
   )
 }
 
-export default page
+export default News
