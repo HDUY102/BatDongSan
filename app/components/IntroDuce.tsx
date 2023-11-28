@@ -2,11 +2,11 @@ import React from 'react'
 import Image from 'next/image'
 import IntroDuceImg from '@/app/img/IntroDuceImg.png'
 import { FaArrowCircleRight } from "react-icons/fa";
-
+import Link from 'next/link';
 
 const IntroDuce = () => {
   return (
-    <section className='grid grid-cols-2 mt-4'>
+    <section className='grid grid-cols-2 mt-1'>
         <div className='py-12'>
           <h1 className='text-4xl font-semibold'>
             Mọi thứ đều dễ dàng với <span className='text-amber-500'>Dream House</span>
@@ -17,10 +17,12 @@ const IntroDuce = () => {
           tốt nhất. Hãy để Dream House là đối tác đáng tin cậy trên hành trình chinh phục ước mơ của bạn!
           </p>
           <div className='flex gap-4 text-sm'>
-            <button className='bg-primary flex gap-2 items-center text-white px-4 py-2 rounded-full'>
-              Learn more
-              <FaArrowCircleRight className="mt-1"/>  
-            </button>
+            <Link href={'/about'}>
+              <button className='bg-primary flex gap-2 items-center text-white px-4 py-2 rounded-full' >
+                Learn more
+                <FaArrowCircleRight className="mt-1"/>  
+              </button>
+            </Link>
           </div>
         </div>
         <div className='relative'>

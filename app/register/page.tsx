@@ -9,17 +9,17 @@ const Register = () => {
           <input type="text" placeholder="Tên Đăng Nhập" />
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Password" />
-          <button type="submit">ĐĂNG KÝ</button>
+          <button className="block w-full" type="submit">ĐĂNG KÝ</button>
           <div className='my-4 text-center text-gray-500'>
             hoặc đăng ký bằng google
           </div>
-          <button className='flex gap-4 justify-center'>
+          <button className='flex gap-4 justify-center  w-full'>
             <Image src={gg} alt='' width={24} height={24}/>
             ĐĂNG KÝ BẰNG GOOGLE
           </button>
         </form>
         <p className='ml-36 mt-2'>
-          Đã có tài khoản? <a className="hover:text-blue-600" href=''><u>Đăng Nhập</u></a>
+          Đã có tài khoản? <a className="hover:text-blue-600" href={'/login'}><u>Đăng Nhập</u></a>
         </p>
       <hr className='mt-16'></hr>
       <footer className='boder-t p-8 text-center text-gray-500 mt-4'>

@@ -8,17 +8,17 @@ const page = () => {
         <form className='block max-w-xl mx-auto'>
           <input type="text" placeholder="Tên Đăng Nhập" />
           <input type="password" placeholder="Password" />
-          <button type="submit">ĐĂNG NHẬP</button>
+          <button className='block w-full' type="submit">ĐĂNG NHẬP</button>
           <div className='my-4 text-center text-gray-500'>
             hoặc đăng nhập bằng google
           </div>
-          <button className='flex gap-4 justify-center'>
+          <button className='flex gap-4  w-full justify-center'>
             <Image src={gg} alt='' width={24} height={24}/>
             ĐĂNG NHẬP BẰNG GOOGLE
           </button>
         </form>
         <p className='ml-36 mt-2'>
-          Chưa có tài khoản? <a className="hover:text-blue-600" href=''><u>Đăng Ký</u></a>
+          Chưa có tài khoản? <a className="hover:text-blue-600" href={'/register'}><u>Đăng Ký</u></a>
         </p>
       <hr className='mt-16'></hr>
       <footer className='boder-t p-8 text-center text-gray-500 mt-4'>
