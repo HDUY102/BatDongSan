@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import React from 'react'
+import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/app/img/logo.png'
 import { FaHeart } from "react-icons/fa6";

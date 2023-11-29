@@ -1,11 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-import about1 from '@/app/img/about1.jpg'
+import HeaderNav from '../components/HeaderNav'
 import ItemNew from './ItemNew'
 import Footer from '../components/Footer'
 const News = () => {
   return (
     <section>
+        <HeaderNav/>
         <div className='mt-8 text-center'>
             <h1 className=' font-bold text-3xl'>Tin tức bất động sản mới nhất</h1>
             <h5 className='text-gray-500 mt-4'>

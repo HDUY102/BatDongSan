@@ -3,10 +3,12 @@ import ListCategory from './ListCategory'
 import { FaSearch   } from 'react-icons/fa'
 import PropertyItem from '../components/PropertyItem'
 import Footer from '../components/Footer'
+import HeaderNav from '../components/HeaderNav'
 
 const Category = () => {
   return (
     <div>
+        <HeaderNav/>
         <div className="join flex ml-60 mt-3 w-96">
           <div>
             <div>
