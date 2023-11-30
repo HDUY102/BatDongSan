@@ -4,7 +4,7 @@ import { FaPlusCircle,FaFile    } from "react-icons/fa";
 import HeaderNavAdmin from '../HeaderNavAdmin';
 import Link from 'next/link'
 
-const Articlemanage = () => {
+const ArticleManage = () => {
   return (
     <div className='flex '>
       <div className='max-w-[30%]'>
@@ -66,7 +66,9 @@ const Articlemanage = () => {
                   <td>$20.000.000</td>
                   <th className='text-white flex '>
                     <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    <Link href={'/admin/updatearticle'}>
+                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    </Link>
                     <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
                   </th>
                 </tr>
@@ -78,7 +80,9 @@ const Articlemanage = () => {
                   <td>$20.000.000</td>
                   <th className='text-white flex '>
                     <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    <Link href={'/admin/updatearticle'}>
+                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    </Link>
                     <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
                   </th>
                 </tr>
@@ -90,7 +94,9 @@ const Articlemanage = () => {
                   <td>$50.000.000</td>
                   <th className='text-white flex '>
                     <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    <Link href={'/admin/updatearticle'}>
+                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                    </Link>
                     <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
                   </th>
                 </tr>
@@ -103,4 +109,4 @@ const Articlemanage = () => {
   )
 }
 
-export default Articlemanage
+export default ArticleManage

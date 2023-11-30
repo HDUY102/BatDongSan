@@ -11,9 +11,7 @@ export default function Home() {
       <div className='justify-center items-center flex ml-60 mt-3 w-96'>
         <div className="join">
           <div>
-            <div>
-              <input className="input input-bordered join-item" placeholder="Bạn đang muốn tìm gì?"/>
-            </div>
+            <input className="input input-bordered join-item" placeholder="Bạn đang muốn tìm gì?"/>
           </div>
           <select className="select select-bordered join-item ">
             <option disabled selected>Loại</option> 
