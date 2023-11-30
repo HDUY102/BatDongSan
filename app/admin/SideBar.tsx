@@ -6,7 +6,7 @@ import { FaHome,FaFile,FaOutdent,FaPoll,FaSignOutAlt  } from "react-icons/fa";
 
 const SideBar = () => {
   return (
-    <div className='h-screen text-center px-4 pt-2 pb-4 bg-gray-300 text-black w-52'>
+    <div className='max-h-full text-center px-4 pt-2 pb-4 bg-gray-300 text-black w-52'>
         <Image src={logo} width={100} height={100} className="ml-9 rounded-full" alt="LOGO"></Image>       
         <h1 className='text-3xl font-semibold mt-2'>Dash <span className='text-primary'>Board</span></h1>
         <div className='text-center mt-16 font-bold'>
@@ -22,7 +22,7 @@ const SideBar = () => {
           </div>
           <div className='flex mt-14 items-center hover:text-primary'>
             <FaOutdent/>
-            <a className='ml-2' href="#">Quản lý danh mục</a>
+            <a className='ml-2' href="/admin/categorymanage">Quản lý danh mục</a>
           </div>
           <div className='flex mt-14 items-center hover:text-primary'>
             <FaPoll/>
