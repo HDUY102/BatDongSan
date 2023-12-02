@@ -1,10 +1,23 @@
 import React from 'react'
 import SideBar from '../SideBar'
-import { FaPlusCircle,FaFile    } from "react-icons/fa";
+import { FaPlusCircle,FaFile} from "react-icons/fa";
 import HeaderNavAdmin from '../HeaderNavAdmin';
 import Link from 'next/link'
+import ListArticles from './ListArticles';
 
-const ArticleManage = () => {
+async function getAllArticle() {
+  const res = await fetch("http://localhost:3000/api/article", {
+    cache: "no-store",
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
+
+const ArticleManage = async () => {
+  const todoArticles = await getAllArticle();
+
   return (
     <div className='flex '>
       <div className='max-w-[30%]'>
@@ -45,64 +58,7 @@ const ArticleManage = () => {
           </div>
         </div>
         <div>
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr>
-                  <th>STT</th>
-                  <th>Tiêu đề</th>
-                  <th>Ngày đăng</th>
-                  <th>Giá tiền</th>
-                  <th></th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                <tr>
-                  <th>1</th>
-                  <td>Cy Ganderton</td>
-                  <td>30/12/2023</td>
-                  <td>$20.000.000</td>
-                  <th className='text-white flex '>
-                    <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <Link href={'/admin/updatearticle'}>
-                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
-                    </Link>
-                    <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
-                  </th>
-                </tr>
-                {/* row 2 */}
-                <tr>
-                  <th>2</th>
-                  <td>Cy Ganderton</td>
-                  <td>30/12/2023</td>
-                  <td>$20.000.000</td>
-                  <th className='text-white flex '>
-                    <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <Link href={'/admin/updatearticle'}>
-                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
-                    </Link>
-                    <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
-                  </th>
-                </tr>
-                {/* row 3 */}
-                <tr>
-                  <th>3</th>
-                  <td>HCM</td>
-                  <td>20/10/2023</td>
-                  <td>$50.000.000</td>
-                  <th className='text-white flex '>
-                    <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <Link href={'/admin/updatearticle'}>
-                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
-                    </Link>
-                    <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
-                  </th>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <ListArticles articles={todoArticles}/>
         </div> 
       </div> 
     </div>

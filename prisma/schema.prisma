@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model category {
+  idCategory   Int        @id @default(autoincrement())
+  categoryName String?    @db.VarChar(255)
+  property     property[]
+}
+
+model imagepost {
+  idImagePost   Int     @id @default(autoincrement())
+  Post_idPost   Int     @unique(map: "ImagePost_Post_idPost_key")
+  NameImagePost String? @db.VarChar(255)
+  ImagePost     String? @db.VarChar(255)
+  post          post    @relation(fields: [Post_idPost], references: [idPost], onDelete: NoAction, onUpdate: NoAction, map: "fk_ImagePost_Post1")
+
+  @@index([Post_idPost], map: "fk_ImagePost_Post1_idx")
+}
+
+model imageproperty {
+  idImage             Int      @id @default(autoincrement())
+  NameImage           String?  @db.VarChar(255)
+  Image               String?  @db.VarChar(255)
+  Property_idProperty Int
+  property            property @relation(fields: [Property_idProperty], references: [idProperty], onDelete: NoAction, onUpdate: NoAction, map: "fk_Image_Property1")
+
+  @@index([Property_idProperty], map: "fk_Image_Property1_idx")
+}
+
+model post {
+  idPost      Int         @id @default(autoincrement())
+  User_idUser Int
+  Title       String?     @db.VarChar(255)
+  Content     String?     @db.VarChar(255)
+  date        DateTime?   @default(now())
+  imagepost   imagepost[]
+  user        user        @relation(fields: [User_idUser], references: [idUser], onDelete: NoAction, onUpdate: NoAction, map: "fk_Post_User1")
+
+  @@index([User_idUser], map: "fk_Post_User1_idx")
+}
+
+model property {
+  idProperty          Int             @id @default(autoincrement())
+  Title               String?         @db.VarChar(255)
+  Description         String?         @db.VarChar(255)
+  Address             String?         @db.VarChar(255)
+  Price               Float?
+  Area                Float?
+  NumberRoom          Int?
+  Category_idCategory Int
+  User_idUser         Int
+  imageproperty       imageproperty[]
+  user                user            @relation(fields: [User_idUser], references: [idUser], onDelete: NoAction, onUpdate: NoAction, map: "fk_Property_User1")
+  category            category        @relation(fields: [Category_idCategory], references: [idCategory], onDelete: NoAction, onUpdate: NoAction, map: "fk_table2_table1")
+
+  @@index([User_idUser], map: "fk_Property_User1_idx")
+  @@index([Category_idCategory], map: "fk_table2_table1_idx")
+}
+
+model user {
+  idUser   Int        @id @default(autoincrement())
+  UserName String?    @db.VarChar(255)
+  PassWord String?    @db.VarChar(255)
+  Phone    Int?
+  Role     String?    @db.VarChar(255)
+  post     post[]
+  property property[]
+}

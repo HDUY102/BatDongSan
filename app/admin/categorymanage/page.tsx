@@ -18,7 +18,7 @@ const Categorymanage = () => {
                     Thêm loại danh mục
                 </button>
             </div>
-            <div className='mt-10 ml-4'>
+            <div className='mt-4 ml-4'>
                 <h1 className='font-semibold'>Loại địa phương</h1>
                 <div className='flex justify-between'>
                     <select className="select select-bordered join-item mt-3">
