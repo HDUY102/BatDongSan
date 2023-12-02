@@ -34,13 +34,13 @@ model imageproperty {
 }
 
 model post {
-  idPost      Int         @id @default(autoincrement())
+  idPost      Int        @id @default(autoincrement())
   User_idUser Int
-  Title       String?     @db.VarChar(255)
-  Content     String?     @db.VarChar(255)
-  date        DateTime?   @default(now())
-  imagepost   imagepost[]
-  user        user        @relation(fields: [User_idUser], references: [idUser], onDelete: NoAction, onUpdate: NoAction, map: "fk_Post_User1")
+  Title       String?    @db.VarChar(255)
+  Content     String?    @db.VarChar(255)
+  date        DateTime?  @default(now())
+  imagepost   imagepost?
+  user        user       @relation(fields: [User_idUser], references: [idUser], onDelete: NoAction, onUpdate: NoAction, map: "fk_Post_User1")
 
   @@index([User_idUser], map: "fk_Post_User1_idx")
 }
