@@ -1,7 +1,8 @@
 import React from 'react'
-import SideBar from '../SideBar'
-import HeaderNavAdmin from '../HeaderNavAdmin'
-const UpdateArticle = () => {
+import SideBar from '../../SideBar'
+import HeaderNavAdmin from '../../HeaderNavAdmin'
+
+const AddArticle = () => {
   return (
     <div className='flex '>
       <div className='max-w-[30%]'>
@@ -75,11 +76,11 @@ const UpdateArticle = () => {
         </div>
         <div className='flex justify-end mb-3'>
             <button className='hover:text-primary mr-3'>Hủy</button>
-            <button className='hover:text-primary'>Chỉnh sửa</button>
+            <button className='hover:text-primary'>Thêm</button>
         </div>
       </div>
     </div>
   )
 }
 
-export default UpdateArticle
+export default AddArticle

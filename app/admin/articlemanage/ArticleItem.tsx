@@ -13,7 +13,7 @@ const ArticleItem = ({article}:{article:Post}) => {
                   <td>{article.Content}</td>
                   <th className='text-white flex '>
                     <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
-                    <Link href={'/admin/updatearticle'}>
+                    <Link href={'/admin/articlemanage/updatearticle'}>
                       <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
                     </Link>
                     <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>

@@ -27,7 +27,7 @@ const ArticleManage = async () => {
         <HeaderNavAdmin/>
         <div className='flex justify-between mt-8'>
           <h1 className='mt-2 ml-4 font-bold'>Quản Lý Bài Viết</h1>
-          <Link href={"/admin/addarticle"}>
+          <Link href={"/admin/articlemanage/addarticle"}>
             <button className='bg-sky-800 text-white hover:bg-white hover:text-red-500  flex items-center '>
               <FaPlusCircle />
               Đăng bài mới
