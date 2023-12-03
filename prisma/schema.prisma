@@ -38,7 +38,7 @@ model post {
   User_idUser Int
   Title       String?    @db.VarChar(255)
   Content     String?    @db.VarChar(255)
-  date        DateTime?  @default(now())
+  date        DateTime?  @db.Date
   imagepost   imagepost?
   user        user       @relation(fields: [User_idUser], references: [idUser], onDelete: NoAction, onUpdate: NoAction, map: "fk_Post_User1")
 

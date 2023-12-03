@@ -1,23 +1,22 @@
 import React from 'react'
 import Link from 'next/link'
-import { Post } from '@prisma/client'
+// import { Post } from '@prisma/client'
 
-const ArticleItem = ({article}:{article:Post}) => {
+const ArticleItem = ({article}:{article:any}) => {
   return (
-            <table className="table">
+            <table className=" w-[100%]">
               <tbody>
-                <tr>
-                  <th>{article.idPost}</th>
+                <tr className='border-b-2 table table-fixed'>
+                  <td>{article.idPost}</td>
                   <td>{article.Title}</td>
-                  <td>{article.date?.toString()}</td>
+                  <td>{article.date?.toString(3)}</td>
                   <td>{article.Content}</td>
-                  <th className='text-white flex '>
-                    <button className="text-red-500 border-none hover:text-white hover:bg-red-500">Xóa</button>
+                  <td className='text-white flex '>
+                    <button className="text-red-400 border-none w-5 hover:text-red-500">Xóa</button>
                     <Link href={'/admin/articlemanage/updatearticle'}>
-                      <button className="text-green-500 border-none hover:text-white hover:bg-green-500">Sửa</button>
+                      <button className="text-green-400 border-none hover:text-green-500">Sửa</button>
                     </Link>
-                    <button className="text-blue-600 border-none hover:text-white hover:bg-blue-600">Duyệt</button>
-                  </th>
+                  </td>
                 </tr>
               </tbody>
             </table>

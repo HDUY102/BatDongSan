@@ -6,7 +6,7 @@ import Link from 'next/link'
 import ListArticles from './ListArticles';
 
 async function getAllArticle() {
-  const res = await fetch("http://localhost:3000/api/article", {
+  const res = await fetch("http://localhost:3000/admin/articlemanage/api/article", {
     cache: "no-store",
   });
   if (!res.ok) {

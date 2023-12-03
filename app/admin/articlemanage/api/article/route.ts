@@ -7,6 +7,7 @@ export async function GET(request:NextRequest) {
     const article = await prisma.post.findMany()
     return NextResponse.json(article);
 }
+
 //post one post
 export async function POST(request:NextRequest) {
     const body = await request.json();

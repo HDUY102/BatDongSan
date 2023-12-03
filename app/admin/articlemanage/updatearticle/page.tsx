@@ -1,6 +1,7 @@
 import React from 'react'
 import SideBar from '@/app/admin/SideBar'
 import HeaderNavAdmin from '../../HeaderNavAdmin'
+import Link from 'next/link'
 const UpdateArticle = () => {
   return (
     <div className='flex '>
@@ -74,7 +75,9 @@ const UpdateArticle = () => {
           </div>
         </div>
         <div className='flex justify-end mb-3'>
+          <Link href={'/admin/articlemanage'}>
             <button className='hover:text-primary mr-3'>Hủy</button>
+          </Link>
             <button className='hover:text-primary'>Chỉnh sửa</button>
         </div>
       </div>

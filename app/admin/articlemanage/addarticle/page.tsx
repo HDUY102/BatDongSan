@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import SideBar from '../../SideBar'
 import HeaderNavAdmin from '../../HeaderNavAdmin'
-
+import Link from 'next/link'
 // async function saveNewArticle() {
 //     const value = useContext(AppContext)
 //     const [saveNewArticle, setNewArticle] = useState({
@@ -93,8 +93,10 @@ const AddArticle = () => {
           </div> */}
         </div>
         <div className='flex justify-end mb-3'>
+          <Link href={'/admin/articlemanage'}>
             <button className='hover:text-primary mr-3'>Hủy</button>
-            <button className='hover:text-primary'>Thêm</button>
+          </Link>
+          <button className='hover:text-primary'>Thêm</button>
         </div>
       </div>
     </div>
