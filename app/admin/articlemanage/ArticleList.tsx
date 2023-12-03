@@ -5,8 +5,8 @@ import ArticleItem from './ArticleItem'
 const ArticleList = ({articlesToList}:{articlesToList:any}) => {
   return (
         <div className="ml-3 border-2">
-          <table className="border-collapse w-[100%] table table-fixed">
-          <thead className=''>
+          <table className="border-b-2  w-[100%] table table-fixed">
+          <thead>
                 <tr>
                   <th>STT</th>
                   <th>Tiêu đề</th>

@@ -29,7 +29,7 @@ const AddArticle = () => {
       <div>
         <HeaderNavAdmin/>
         <h1 className='mt-1 ml-4 font-bold'>Thông tin cơ bản</h1>
-        {/* <div className='flex justify-between mt-1'>
+        <div className='flex justify-between mt-1'>
           <select className="select select-bordered join-item ml-4">
             <option disabled selected>Tỉnh/Thành phố</option> 
             <option>Hà Nội</option>
@@ -62,7 +62,7 @@ const AddArticle = () => {
             <option>Đất</option>
             <option>Căn hộ</option>
           </select> 
-        </div> */}
+        </div>
         <h3 className='mt-1 ml-4'>Địa chỉ</h3> 
         <input  type="text" placeholder="VD: 123 Đống Đa" className="ml-3 input input-bordered  max-w-xs" /> 
         <h1 className='mt-2 ml-4 font-bold'>Thông tin bài viết</h1>
@@ -83,14 +83,14 @@ const AddArticle = () => {
                 <input className="input input-bordered mt-3" placeholder="Số lượng phòng"/>
               </div>
           </div>
-          {/* <div>
+          <div>
               <div>
                 <input className="input input-bordered" placeholder="Giá"/>
               </div>
               <div>
                 <input className="input input-bordered mt-3" placeholder="Số tầng"/>
               </div>
-          </div> */}
+          </div>
         </div>
         <div className='flex justify-end mb-3'>
           <Link href={'/admin/articlemanage'}>
