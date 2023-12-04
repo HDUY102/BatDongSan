@@ -40,7 +40,6 @@ const Register = () => {
     } 
   }
   return (
-    // <section {...form}>
       <div >
         <HeaderNav/>
         <div className='mt-24'>
@@ -59,7 +58,6 @@ const Register = () => {
         <i>Dream <span className='text-amber-400'>House</span></i> &copy; 2023 Accompany your dreams
       </footer>
     </div>
-    // </section>
   )
 }
 

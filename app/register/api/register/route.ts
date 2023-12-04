@@ -9,7 +9,7 @@ export async function GET(request:NextRequest) {
 export async function POST(request:NextRequest) {
     try{
         const body = await request.json();
-        const {username,password}=body;
+        const {username}=body;
         //check if username already exists
         const existingUserByUsername = await prisma.user.findFirst({
             where:{
