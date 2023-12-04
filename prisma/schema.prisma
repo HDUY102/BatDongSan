@@ -65,7 +65,7 @@ model property {
 
 model user {
   idUser   Int        @id @default(autoincrement())
-  UserName String?    @db.VarChar(255)
+  UserName String     @unique(map: "UserName_UNIQUE") @db.VarChar(255)
   PassWord String?    @db.VarChar(255)
   Phone    Int?
   Role     String?    @db.VarChar(255)
