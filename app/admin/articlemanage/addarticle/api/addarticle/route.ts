@@ -2,12 +2,6 @@ import { NextRequest,NextResponse } from "next/server";
 import prisma from "@/prisma/client";
 import ArticleSchema from "@/app/admin/articlemanage/addarticle/api/addarticle/ArticleSchema";
 
-//get all post
-export async function GET(request:NextRequest) {
-    const article = await prisma.post.findMany()
-    return NextResponse.json(article);
-}
-
 //post one post
 export async function POST(request:NextRequest) {
     try{
@@ -26,7 +20,7 @@ export async function POST(request:NextRequest) {
                     Category_idCategory: body.Category_idCategory,
                     Title: body.Title,
                     Content: body.Content,
-                    date: new Date()
+                    Date: new Date()
                 }
             })
             return NextResponse.json({post: newArticle,message:"Post created successfully"},{status:201});

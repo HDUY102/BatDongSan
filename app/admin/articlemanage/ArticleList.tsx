@@ -1,8 +1,7 @@
 import React from 'react'
 import ArticleItem from './ArticleItem'
-// import { Post } from '@prisma/client'
 
-const ArticleList = ({articlesToList}:{articlesToList:any}) => {
+const ArticleList = ({ articlesToList, onDelete }: { articlesToList: any; onDelete: (id: number) => void }) => {
   return (
         <div className="ml-3 border-2">
           <table className="border-b-2  w-[100%] table table-fixed">
@@ -17,7 +16,7 @@ const ArticleList = ({articlesToList}:{articlesToList:any}) => {
             </thead>
           </table>
           {articlesToList.map((article:any)=>(
-            <ArticleItem key={article.idPost} article={article}/>
+            <ArticleItem key={article.idPost} article={article} onDelete={onDelete} />
         ))}
         </div>
   )

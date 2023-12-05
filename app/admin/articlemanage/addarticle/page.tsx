@@ -7,11 +7,9 @@ import { useForm } from "react-hook-form";
 import { useRouter } from 'next/navigation';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
-import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const AddArticle = () => {
-  const [selectedDate, setSelectDate] = useState(new Date()); 
   const [Content, setContent] = useState('');
   const router = useRouter();
   const categoryMapping  : Record<string, number> ={
@@ -27,11 +25,9 @@ const AddArticle = () => {
     const categoryKey: string = data.Category_idCategory;
     const formValues = {
       User_idUser: Number.parseInt(data.User_idUser),
-      // Category_idCategory: Number.parseInt(data.Category_idCategory),
       Category_idCategory:  categoryMapping[categoryKey],
       Title: data.Title,
       Content: Content,
-      Date: selectedDate.toISOString()
     }
     console.log(formValues)
     const respone = await fetch("http://localhost:3000/admin/articlemanage/addarticle/api/addarticle",{
@@ -44,6 +40,7 @@ const AddArticle = () => {
     })
 
     if(respone.ok){
+      alert("Thêm bài viết thành công")
       router.push('/admin/articlemanage')
     }
     else {
@@ -60,15 +57,9 @@ const AddArticle = () => {
         <HeaderNavAdmin/>
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className='mt-2 ml-4 font-bold'>Thông tin bài viết</h1>
-          
-          
           <div className='ml-4 mt-2 flex justify-between'>
             <div>
-              <h3 className="mt-2">Ngày đăng</h3>
-              <DatePicker className="" selected={selectedDate} onChange= {(date:any) => setSelectDate(date as Date)} /> 
-            </div>
-            <div>
-              <h3 className="mt-2 text-right">Loại danh mục</h3>
+              <h3 className="mt-2">Loại danh mục</h3>
               <select {...register("Category_idCategory")} className=" mt-2 select select-bordered join-item">
                 <option value="" disabled selected>Loại bất động sản</option>
                 <option value="Nhà">Nhà</option>
