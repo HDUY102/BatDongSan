@@ -1,10 +1,17 @@
 "use client";
 import React, { useState } from 'react'
 import ArticleList from './ArticleList';
+import { usePostStore } from '@/app/lib/hooks/usePostStore';
 
-const ListArticles = ({ articles }: { articles: any }) => {
+const ListArticles = () => {
+  const { posts, getAllPosts } = usePostStore();
+  const [postsToList, setPostsToList] = useState(posts);
+
+  function getAllPostsToList() {
+    setPostsToList(getAllPosts);
+  }
   const handleDelete = async (id: number) => {
-    const response = await fetch(`http://localhost:3000/admin/articlemanage/api/article/${id}`, {
+    const response = await fetch(`/admin/articlemanage/api/${id}`, {
       method: 'DELETE',
     });
     if (response.ok) {
@@ -14,10 +21,9 @@ const ListArticles = ({ articles }: { articles: any }) => {
       console.error('Error deleting article:', response.statusText);
     }
   };
-    const [articlesToList] = useState(articles);
     return (
     <div>
-        <ArticleList articlesToList={articlesToList} onDelete={handleDelete} />
+        <ArticleList postsToList={postsToList} onDelete={handleDelete} />
     </div>
   )
 }

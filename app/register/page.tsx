@@ -7,8 +7,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 const RegisterSchema = z.object({
-  UserName: z.string().min(3,"Username is required").max(255),
-  PassWord: z.string().min(3).max(8),
+  UserName: z.string().min(3,"Username is required more than 3").max(255),
+  PassWord: z.string().min(3,"PassWord is required more than 3").max(8),
 })
 
 const Register = () => {  
@@ -22,17 +22,18 @@ const Register = () => {
     })
 
   const onSubmit= async (value: z.infer<typeof RegisterSchema>) => {
-    const respone = await fetch("http://localhost:3000/register/api/register",{
+    const respone = await fetch("http://localhost:3000/api/register",{
       method: 'POST',
       headers:{
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
         username: value.UserName,
-        PassWord: value.PassWord
+        password: value.PassWord
       })
     })
     if(respone.ok){
+      alert("Đăng ký thành công")
       router.push('/login')
     }
     else {

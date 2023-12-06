@@ -1,7 +1,7 @@
 import React from 'react'
 import ArticleItem from './ArticleItem'
 
-const ArticleList = ({ articlesToList, onDelete }: { articlesToList: any; onDelete: (id: number) => void }) => {
+const ArticleList = ({ postsToList, onDelete }: { postsToList: any; onDelete: (id: number) => void }) => {
   return (
         <div className="ml-3 border-2">
           <table className="border-b-2  w-[100%] table table-fixed">
@@ -15,8 +15,8 @@ const ArticleList = ({ articlesToList, onDelete }: { articlesToList: any; onDele
                 </tr>
             </thead>
           </table>
-          {articlesToList.map((article:any)=>(
-            <ArticleItem key={article.idPost} article={article} onDelete={onDelete} />
+          {postsToList.map((post:any)=>(
+            <ArticleItem key={post.idPost} post={post} onDelete={onDelete} />
         ))}
         </div>
   )

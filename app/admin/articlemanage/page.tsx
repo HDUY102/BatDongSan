@@ -1,22 +1,19 @@
-import React from 'react'
+"use client"
+import React, {useEffect} from 'react'
 import SideBar from '../SideBar'
 import { FaPlusCircle,FaFile} from "react-icons/fa";
 import HeaderNavAdmin from '../HeaderNavAdmin';
 import Link from 'next/link'
 import ListArticles from './ListArticles';
+import { usePostStore } from '@/app/lib/hooks/usePostStore';
 
-async function getAllArticle() {
-  const res = await fetch("http://localhost:3000/admin/articlemanage/api/article", {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
-}
+const ArticleManage =  () => {
 
-const ArticleManage = async () => {
-  const todoArticles = await getAllArticle();
+  const {fetchData , isLoading} = usePostStore();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div className='flex '>
@@ -58,7 +55,11 @@ const ArticleManage = async () => {
           </div>
         </div>
         <div>
-          <ListArticles articles={todoArticles}/>
+          {isLoading ? (
+          <div className="text-center text-lg">Loading...</div>
+          ) : (
+            <ListArticles />
+          )}
         </div> 
       </div> 
     </div>

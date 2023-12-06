@@ -1,17 +1,21 @@
 "use client"
-import React, {  useState } from 'react'
-import SideBar from '../../SideBar'
-import HeaderNavAdmin from '../../HeaderNavAdmin'
+import React, {  useEffect,useState } from 'react'
+import SideBar from '../../../SideBar'
+import HeaderNavAdmin from '../../../HeaderNavAdmin'
 import Link from 'next/link'
 import { useForm } from "react-hook-form";
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'react-datepicker/dist/react-datepicker.css';
-
-const AddArticle = () => {
+const UpdateArticle = () => {
   const [Content, setContent] = useState('');
   const router = useRouter();
+  const { register, handleSubmit,formState:{ errors } } = useForm();
+  
+  
+
+
   const categoryMapping  : Record<string, number> ={
     "Thuê": 1,
     "Mua": 2,
@@ -20,8 +24,10 @@ const AddArticle = () => {
     "Đất": 5,
     "Nhà": 6,
   };
-  const { register, handleSubmit, formState:{ errors } } = useForm();
+  
   const onSubmit = async (data:any) => {
+    const params = useParams();
+    const idPost = params.uid;
     const categoryKey: string = data.Category_idCategory;
     const formValues = {
       User_idUser: Number.parseInt(data.User_idUser),
@@ -30,17 +36,16 @@ const AddArticle = () => {
       Content: Content,
     }
     console.log(formValues)
-    const respone = await fetch("http://localhost:3000/api/article/add",{
-      method: 'POST',
+    const respone = await fetch(`http://localhost:3000/api/article/update/${idPost}`,{
+      method: 'PUT',
       headers:{
         'Content-Type': 'application/json'
       },
-      
       body: JSON.stringify(formValues)
     })
 
     if(respone.ok){
-      alert("Thêm bài viết thành công")
+      alert("Chỉnh sửa bài viết thành công")
       router.push('/admin/articlemanage')
     }
     else {
@@ -87,7 +92,7 @@ const AddArticle = () => {
             <Link href={'/admin/articlemanage'}>
               <button className='hover:text-primary mr-3'>Hủy</button>
             </Link>
-            <button className='hover:bg-white hover:text-primary hover:border-2' type="submit">Thêm</button>
+            <button className='hover:bg-white hover:text-primary hover:border-2' type="submit">Cập nhật</button>
           </div>
         </form>
       </div>
@@ -95,4 +100,4 @@ const AddArticle = () => {
   )
 }
 
-export default AddArticle
+export default UpdateArticle

@@ -1,6 +1,6 @@
 import { NextRequest,NextResponse } from "next/server";
 import prisma from "@/prisma/client";
-import ArticleSchema from "@/app/admin/articlemanage/addarticle/api/addarticle/ArticleSchema";
+import ArticleSchema from "./ArticleSchema";
 
 //post one post
 export async function POST(request:NextRequest) {
