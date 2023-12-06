@@ -8,26 +8,46 @@ import { useParams, useRouter } from 'next/navigation';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import 'react-datepicker/dist/react-datepicker.css';
+import { usePostStore } from '@/app/lib/hooks/usePostStore'
+
 const UpdateArticle = () => {
   const [Content, setContent] = useState('');
   const router = useRouter();
-  const { register, handleSubmit,formState:{ errors } } = useForm();
-  
-  
-
-
-  const categoryMapping  : Record<string, number> ={
-    "Thuê": 1,
-    "Mua": 2,
-    "Bán": 3,
-    "Dự án": 4,
-    "Đất": 5,
-    "Nhà": 6,
+  const { register, handleSubmit,setValue,formState:{ errors } } = useForm();
+  const { id } = useParams();
+  const idPost = Array.isArray(id) ? parseInt(id[0]) : parseInt(id as string);
+  const categoryMapping  : Record<number, string> ={
+    1:"Thuê",
+    2:"Mua",
+    3:"Bán",
+    4:"Dự án",
+    5:"Đất",
+    6:"Nhà",
   };
+
+  const post = usePostStore.getState().getPostById(idPost)[0];
+
+  useEffect(() => {
+    usePostStore.getState().fetchData();
+    
   
+    if (post) {
+      setValue("Category_idCategory", post.Category_idCategory);
+      setValue("Title", post.Title);
+      setValue("User_idUser", post.User_idUser);
+      setContent(post.Content || '');
+    }
+  }, [idPost]);
+
   const onSubmit = async (data:any) => {
-    const params = useParams();
-    const idPost = params.uid;
+    const categoryMapping  : Record<string, number> ={
+      "Thuê": 1,
+      "Mua": 2,
+      "Bán": 3,
+      "Dự án": 4,
+      "Đất": 5,
+      "Nhà": 6,
+    };
     const categoryKey: string = data.Category_idCategory;
     const formValues = {
       User_idUser: Number.parseInt(data.User_idUser),
@@ -65,25 +85,24 @@ const UpdateArticle = () => {
           <div className='ml-4 mt-2 flex justify-between'>
             <div>
               <h3 className="mt-2">Loại danh mục</h3>
-              <select {...register("Category_idCategory")} className=" mt-2 select select-bordered join-item">
+              <select {...register("Category_idCategory")} defaultValue={post ? post.Category_idCategory : ""} className=" mt-2 select select-bordered join-item">
                 <option value="" disabled selected>Loại bất động sản</option>
-                <option value="Nhà">Nhà</option>
-                <option value="Đất">Đất</option>
-                <option value="Căn hộ">Căn hộ</option>
-                <option value="Thuê">Thuê</option>
-                <option value="Bán">Bán</option>
-                <option value="Dự án">Dự án</option>
+                {Object.entries(categoryMapping).map(([key, value]) => (
+                  <option key={key} value={key}>
+                    {value}
+                  </option>
+                ))}
               </select>
             </div>
           </div>
           <div className='flex justify-between ml-3 mt-4 mb-3'>
             <div>
               <h3 className="">Tiêu đề</h3>
-              <input {...register("Title")} type="text" placeholder="Tiêu đề" className="input input-bordered  max-w-xs" />
+              <input {...register("Title")} defaultValue={post && post.Title ? post.Title  : ""} type="text" placeholder="Tiêu đề" className="input input-bordered  max-w-xs" />
             </div>
             <div>
               <h3 className="text-right">Mã người đăng bài</h3>
-             <input {...register("User_idUser")} type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
+             <input {...register("User_idUser")}  defaultValue={post ? post.User_idUser : ""} type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
             </div>
           </div> 
           <h3 className='mt-3 ml-4'>Nội dung</h3> 

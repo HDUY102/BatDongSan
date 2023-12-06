@@ -25,7 +25,8 @@ export const usePostStore = create<State & Actions>((set, get) => ({
     return get().posts;
   },
   getPostById: (id) =>{
-    return get().posts.filter((post: post) => post.idPost === id);
+    let idPost = parseInt(id)
+    return get().posts.filter((post: post) => post.idPost === idPost);
   },
   setPosts: (posts) => set(() => ({ posts: posts })),
   fetchData: async () => {

@@ -7,13 +7,10 @@ export async function POST(request:NextRequest) {
     try{
         const body = await request.json();
 
-        //Check validate for post before adding task to db
         const validation = ArticleSchema.safeParse(body)
         if(!validation.success){
-            //If the data isn't validate, return 400 and error message
             return Response.json(validation.error.errors,{status:400})
         }else{
-            //add new post to mysql db
             const newArticle = await prisma.post.create({
                 data:{
                     User_idUser: body.User_idUser,
