@@ -3,14 +3,6 @@ import React from 'react'
 const ListCategory = () => {
   return (
     <div className='flex justify-evenly'>
-        {/* <div className="dropdown dropdown-hover mt-8">
-            <div tabIndex={0} role="button" className="btn m-1">Loại bất động sản</div>
-            <ul className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52">
-                <li><a>Dự án</a></li>
-                <li><a>Thuê</a></li>
-                <li><a>Bán</a></li>
-            </ul>
-        </div> */}
         <div className='mt-10 ml-4'>
             <select className="select select-bordered join-item ">
                 <option disabled selected>Loại giao dịch</option> 

@@ -19,6 +19,9 @@ const HeaderNav = () => {
                 <Link className="p-2 hover:bg-white hover:text-black rounded-full px-6 tooltip tooltip-bottom" data-tip="News" href={"/news"}>News</Link>
             </nav>
             <nav className='flex items-center gap-6 text-gray-500 font-semibold'>
+                <Link className="text-white hover:text-red-500 tooltip tooltip-bottom" href={'/favourite'} data-tip="Favourite">
+                  <FaHeart/>  
+                </Link>
                 <Link className="text-white hover:text-red-500 tooltip tooltip-bottom" href={'/admin'} data-tip="Favourite">
                   <FaHeart/>  
                 </Link>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { FaArrowRight } from "react-icons/fa";
-import NewsItem from './NewsItem';
+import NewsItem from '../components/NewsItem';
 
 
-const AboutProperty = () => {
+const AboutNews = () => {
   return (
         <section className='text-center my-16 '>
         <div className='flex gap-x-96'>
@@ -22,4 +22,4 @@ const AboutProperty = () => {
   )
 }
 
-export default AboutProperty
+export default AboutNews

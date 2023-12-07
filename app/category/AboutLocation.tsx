@@ -6,7 +6,7 @@ import HN from '@/app/img/HN.png'
 import HP from '@/app/img/HP.png'
 import NT from '@/app/img/NT.png'
 
-const AboutProperty = () => {
+const AboutLocation = () => {
   return (
     <div>
         {/* <IntroDuce/> */}
@@ -43,4 +43,4 @@ const AboutProperty = () => {
   )
 }
 
-export default AboutProperty
+export default AboutLocation

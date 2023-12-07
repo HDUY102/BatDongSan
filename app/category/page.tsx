@@ -1,11 +1,25 @@
-import React from 'react'
+"use client"
+import React,{useEffect,useState} from 'react'
 import ListCategory from './ListCategory'
 import { FaSearch   } from 'react-icons/fa'
-import PropertyItem from '../components/PropertyItem'
+import PropertyItem from './PropertyItem'
 import Footer from '../components/Footer'
 import HeaderNav from '../components/HeaderNav'
+import { property } from '@prisma/client'
+import { usePropertyStore } from '../lib/hooks/usePropertyStore'
+import AboutProperty from './AboutProperty'
 
 const Category = () => {
+  const {fetchData , isLoading} = usePropertyStore();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const { properties, getAllProperties } = usePropertyStore();
+  const [propertyToList, setPropertiesToList] = useState(properties);
+  function getAllPropertiesToList() {
+    setPropertiesToList(getAllProperties);
+  }
   return (
     <div>
         <HeaderNav/>
@@ -36,14 +50,9 @@ const Category = () => {
             </h5>
         </div>
         <ListCategory/>
-        <section className='text-center my-8 '>
-          <div className='grid grid-cols-3 gap-4'>
-              <PropertyItem/>
-              <PropertyItem/>
-              <PropertyItem/>
-              <PropertyItem/>
-              <PropertyItem/>
-              <PropertyItem/>
+        <section className='text-center '>
+          <div className=' gap-4'>
+            <AboutProperty propertiesToList={propertyToList}/>
           </div>
         </section>
         <div className='text-red items-center justify-center text-center mb-4'>

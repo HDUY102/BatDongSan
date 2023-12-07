@@ -1,10 +1,19 @@
+"use client"
+
 import { FaSearch   } from 'react-icons/fa'
+import {useEffect} from 'react'
 import Footer from './components/Footer'
 import IntroDuce from './components/IntroDuce'
-import Property from './components/Property'
+import Property from './category/Property'
 import HeaderNav from './components/HeaderNav'
+import { usePropertyStore } from './lib/hooks/usePropertyStore'
 
 export default function Home() {
+  const {fetchData , isLoading} = usePropertyStore();
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <div>
       <HeaderNav/>
@@ -27,7 +36,13 @@ export default function Home() {
         </div>
       </div>
       <IntroDuce/>
-      <Property/>
+      <div>
+        {isLoading ? (
+          <div className="text-center text-lg">Loading...</div>
+          ) : (
+            <Property />
+          )}
+      </div>
       <Footer/>
     </div>
   )
