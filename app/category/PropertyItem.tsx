@@ -12,7 +12,7 @@ const PropertyItem = ({property}:{property:property}) => {
     }
   };
   return (
-    <div>
+    <Link href={`/detailProperty/${property.idProperty}`}>
         <div className='bg-gray-200 p-4 rounded-lg text-center group hover:bg-white hover:shadow-md hover:shadow-black/25 transition-all h-80'>
             <div className='text-center'>
               <Image className="max-h-auto max-h-24" src={IntroDuceImg} alt="bất động sản"/>
@@ -23,11 +23,11 @@ const PropertyItem = ({property}:{property:property}) => {
                 <br />
                 Giá: {formatCurrency(property?.Price || 0)}
             </p>
-            <Link className="bg-amber-500 text-white block w-full rounded-full mt-4 px-8 py-2" data-tip="Đặt Mua" href={`/detailProperty/${property.idProperty}`}>
+            <p className="bg-amber-500 text-white block w-full rounded-full mt-4 px-8 py-2 hover:bg-amber-300" data-tip="Đặt Mua" >
               Đặt mua
-            </Link>
+            </p>
         </div>
-    </div>
+    </Link>
   )
 }
 

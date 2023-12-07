@@ -50,6 +50,7 @@ model property {
   idProperty          Int             @id @default(autoincrement())
   Title               String?         @db.VarChar(255)
   Description         String?         @db.VarChar(255)
+  Content             String?         @db.VarChar(9999)
   Address             String?         @db.VarChar(255)
   Price               Float?
   Area                Float?

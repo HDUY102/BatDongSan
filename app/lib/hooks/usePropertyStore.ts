@@ -1,6 +1,5 @@
 import { create } from "zustand";
-import { property } from "@prisma/client";
-
+import {property} from "@prisma/client"
 interface State {
   properties: property[];
   isLoading: boolean;

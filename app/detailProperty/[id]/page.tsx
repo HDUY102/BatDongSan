@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderNav from "../../components/HeaderNav";
 import Footer from "../../components/Footer";
-import Content from "../Content";
+import DetailProperty from "../DetailProperty";
 import Slide from "../Slide";
 
 const page = () => {
@@ -9,7 +9,7 @@ const page = () => {
     <div>
       <HeaderNav />
       <Slide/>
-      <Content />
+      <DetailProperty />
       <Footer />
     </div>
   );

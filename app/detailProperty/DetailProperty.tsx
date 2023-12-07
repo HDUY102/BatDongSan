@@ -1,10 +1,8 @@
 "use client"
-import { property } from "@prisma/client";
-import React,{useEffect} from "react";
 import { useParams} from 'next/navigation';
 import { usePropertyStore } from "../lib/hooks/usePropertyStore";
 
-const Content = () => {
+const DetailProperty = () => {
   const { id } = useParams();
   const idProperty = Array.isArray(id) ? parseInt(id[0]) : parseInt(id as string);
   console.log(idProperty)
@@ -19,7 +17,7 @@ const Content = () => {
   
   return (
     <div>
-      <div className="mt-1 ml-4 font-bold">
+      <div className="mt-8 ml-4 font-bold">
         <h1 id="Title" className="text-2xl">
           {property?.Title}
         </h1>
@@ -40,10 +38,10 @@ const Content = () => {
             <span className="value text-2xl">{property?.NumberRoom}</span>
           </div>
         </div>
-        <div className="row ">
+        <div className="row mb-10">
           <span className="font-bold text-xl">Thông tin mô tả</span>
           <p id="Description" className="font-normal mb-2">
-            {property?.Description}
+            {property?.Content}
           </p>
         </div>
       </div>
@@ -51,4 +49,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default DetailProperty;
