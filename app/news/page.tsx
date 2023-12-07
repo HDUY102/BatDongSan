@@ -1,9 +1,11 @@
 import React from 'react'
-import Image from 'next/image'
+import Link from "next/link";
 import HeaderNav from '../components/HeaderNav'
 import ItemNew from './ItemNew'
 import Footer from '../components/Footer'
-const News = () => {
+import { post } from "@prisma/client";
+
+const News = ({postsToList}: {postsToList: post[]}) => {
   return (
     <section>
         <HeaderNav/>
@@ -15,10 +17,11 @@ const News = () => {
             phóng viên, biên tập của DreamHouse.com.vn.
             </h5>
         </div>
-        <ItemNew/>
-        <ItemNew/>
-        <ItemNew/>
-        <ItemNew/>
+        <Link href={'/news'}>
+          {postsToList?.map((post: post) => (
+            <ItemNew key={post.idPost} post={post}/>
+          ))}
+        </Link>
         <div className='text-red items-center justify-center text-center mt-3'>
             <button className='hover:bg-red-500 hover:text-white font-semibold'>
                 Xem Thêm

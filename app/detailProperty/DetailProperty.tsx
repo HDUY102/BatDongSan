@@ -5,7 +5,6 @@ import { usePropertyStore } from "../lib/hooks/usePropertyStore";
 const DetailProperty = () => {
   const { id } = useParams();
   const idProperty = Array.isArray(id) ? parseInt(id[0]) : parseInt(id as string);
-  console.log(idProperty)
   const property = usePropertyStore.getState().getPropertyById(idProperty)[0];
   const formatCurrency = (amount: number): string => {
     if (amount < 1000000000) {

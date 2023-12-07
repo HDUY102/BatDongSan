@@ -3,24 +3,24 @@ import { post } from "@prisma/client";
 
 interface State {
   posts: post[];
-  isLoading: boolean;
+  isLoadingPost: boolean;
 }
 
 interface Actions {
   getPostById: (id:any) => post[];
   getAllPosts: () => post[];
-  fetchData: () => Promise<void>;
+  fetchDataPosts: () => Promise<void>;
   setPosts: (tasks: State["posts"]) => void;
 }
 
 const INITIAL_STATE: State = {
   posts: [],
-  isLoading: false,
+  isLoadingPost: false,
 };
 
 export const usePostStore = create<State & Actions>((set, get) => ({
   posts: INITIAL_STATE.posts,
-  isLoading: INITIAL_STATE.isLoading,
+  isLoadingPost: INITIAL_STATE.isLoadingPost,
   getAllPosts: () => {
     return get().posts;
   },
@@ -29,14 +29,14 @@ export const usePostStore = create<State & Actions>((set, get) => ({
     return get().posts.filter((post: post) => post.idPost === idPost);
   },
   setPosts: (posts) => set(() => ({ posts: posts })),
-  fetchData: async () => {
+  fetchDataPosts: async () => {
     try {
-      set({ isLoading: true });
+      set({ isLoadingPost: true });
       const response = await fetch("http://localhost:3000/api/article", {
         cache: "no-store",
       });
       const data = await response.json();
-      set({ posts: data, isLoading: false });
+      set({ posts: data, isLoadingPost: false });
     } catch (error) {}
   },
 }));

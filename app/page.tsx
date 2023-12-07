@@ -1,5 +1,4 @@
 "use client"
-
 import { FaSearch   } from 'react-icons/fa'
 import {useEffect} from 'react'
 import Footer from './components/Footer'
@@ -7,12 +6,15 @@ import IntroDuce from './components/IntroDuce'
 import Property from './category/Property'
 import HeaderNav from './components/HeaderNav'
 import { usePropertyStore } from './lib/hooks/usePropertyStore'
+import { usePostStore } from './lib/hooks/usePostStore'
 
 export default function Home() {
   const {fetchData , isLoading} = usePropertyStore();
+  const {fetchDataPosts,isLoadingPost } = usePostStore();
 
   useEffect(() => {
     fetchData();
+    fetchDataPosts();
   }, []);
   return (
     <div>
@@ -37,7 +39,7 @@ export default function Home() {
       </div>
       <IntroDuce/>
       <div>
-        {isLoading ? (
+        {isLoading && isLoadingPost ? (
           <div className="text-center text-lg">Loading...</div>
           ) : (
             <Property />

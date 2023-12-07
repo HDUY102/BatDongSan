@@ -1,11 +1,14 @@
 import React from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import logo from '@/app/img/logo.png'
 const Footer = () => {
   return (
     <footer className="footer p-10 bg-cyan-700 text-neutral-content mt-2">
         <aside>
-            <Image src={logo} width={60} height={40} className="p-2 ml-3 rounded-full" alt="LOGO"></Image>        
+            <Link className='w-16' href={'/'}>
+                <Image src={logo} width={60} height={40} className="p-2 ml-3 rounded-full" alt="LOGO"></Image>
+            </Link>        
             <p>Dream House Bds.<br/>Providing reliable tech since 2023</p>
         </aside>
         <nav>

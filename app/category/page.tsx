@@ -17,9 +17,7 @@ const Category = () => {
   }, []);
   const { properties, getAllProperties } = usePropertyStore();
   const [propertyToList, setPropertiesToList] = useState(properties);
-  function getAllPropertiesToList() {
-    setPropertiesToList(getAllProperties);
-  }
+
   return (
     <div>
         <HeaderNav/>
