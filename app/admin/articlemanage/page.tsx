@@ -9,10 +9,10 @@ import { usePostStore } from '@/app/lib/hooks/usePostStore';
 
 const ArticleManage =  () => {
 
-  const {fetchData , isLoading} = usePostStore();
+  const {fetchDataPosts , isLoadingPost} = usePostStore();
 
   useEffect(() => {
-    fetchData();
+    fetchDataPosts();
   }, []);
 
   return (
@@ -55,7 +55,7 @@ const ArticleManage =  () => {
           </div>
         </div>
         <div>
-          {isLoading ? (
+          {isLoadingPost ? (
           <div className="text-center text-lg">Loading...</div>
           ) : (
             <ListArticles />

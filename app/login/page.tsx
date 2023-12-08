@@ -11,7 +11,7 @@ const Login = () => {
             <input type="password" placeholder="Password" />
             <button className='block w-full' type="submit">ĐĂNG NHẬP</button>
           </form>
-          <p className='ml-36 mt-4'>
+          <p className='ml-40 mt-4'>
             Chưa có tài khoản? <a className="hover:text-blue-600" href={'/register'}><u>Đăng Ký</u></a>
           </p>
       </div>

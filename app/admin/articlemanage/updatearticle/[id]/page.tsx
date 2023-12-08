@@ -28,7 +28,7 @@ const UpdateArticle = () => {
   const post = usePostStore.getState().getPostById(idPost)[0];
 
   useEffect(() => {
-    usePostStore.getState().fetchData();
+    usePostStore.getState().fetchDataPosts();
     
   
     if (post) {

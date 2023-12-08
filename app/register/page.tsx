@@ -50,7 +50,7 @@ const Register = () => {
             <input type="password" placeholder="Password" {...form.register("PassWord")}/>
             <button className="block w-full hover:border-2 hover:bg-white hover:text-primary" type="submit">ĐĂNG KÝ</button>
           </form>
-          <p className='ml-36 mt-2'>
+          <p className='ml-40 mt-2'>
             Đã có tài khoản? <a className="hover:text-blue-600" href={'/login'}><u>Đăng Nhập</u></a>
           </p>
         </div>
