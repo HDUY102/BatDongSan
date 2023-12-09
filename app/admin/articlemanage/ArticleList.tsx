@@ -7,7 +7,7 @@ const ArticleList = ({postsToList,onDelete,}: {postsToList: any;onDelete: (id: n
       <table className="border-b-2  w-[100%] table table-fixed">
         <thead>
           <tr>
-            <th>STT</th>
+            <th>ID</th>
             <th>Tiêu đề</th>
             <th>Ngày đăng</th>
             <th>Nội dung</th>

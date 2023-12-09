@@ -2,22 +2,39 @@
 import React,{useEffect,useState} from 'react'
 import ListCategory from './ListCategory'
 import { FaSearch   } from 'react-icons/fa'
-import PropertyItem from './PropertyItem'
 import Footer from '../components/Footer'
 import HeaderNav from '../components/HeaderNav'
-import { property } from '@prisma/client'
 import { usePropertyStore } from '../lib/hooks/usePropertyStore'
 import AboutProperty from './AboutProperty'
 
+interface Property {
+  idProperty: number;
+  Title: string | null;
+  Description: string | null;
+  Content: string | null;
+  Address: string | null;
+  Price: number | null;
+  Area: number | null;
+  NumberRoom: number | null;
+  Category_idCategory: number;
+  User_idUser: number;
+}
+
 const Category = () => {
   const {fetchData , isLoading} = usePropertyStore();
+  const { properties, getAllProperties } = usePropertyStore();
 
+  const [propertyToList, setPropertiesToList] = useState<Property[]>([]);
+  const [visibleItems, setVisibleItems] = useState<number>(3);
   useEffect(() => {
     fetchData();
   }, []);
-  const { properties, getAllProperties } = usePropertyStore();
-  const [propertyToList, setPropertiesToList] = useState(properties);
-
+  useEffect(() => {
+    setPropertiesToList(properties.slice(0, visibleItems));
+  }, [properties, visibleItems]);
+  const handleLoadMore = () => {
+    setVisibleItems((prevVisibleItems) => prevVisibleItems + 3);
+  };
   return (
     <div>
         <HeaderNav/>
@@ -54,7 +71,7 @@ const Category = () => {
           </div>
         </section>
         <div className='text-red items-center justify-center text-center mb-4'>
-            <button className='hover:bg-red-500 hover:text-white font-semibold'>
+            <button  onClick={handleLoadMore} className='hover:bg-red-500 hover:text-white font-semibold'>
                 Xem Thêm
             </button>
         </div>

@@ -10,10 +10,9 @@ import { usePostStore } from '../lib/hooks/usePostStore';
 
 const Property = () => {
   const { properties } = usePropertyStore();
-  const [propertyToList] = useState(properties);
   const { posts } = usePostStore();
-  const [postsToList] = useState(posts);
-
+  const [propertyToList] = useState(properties.slice(0, 3));
+  const [postsToList] = useState(posts.slice(0, 3));
   return (
     <section>
         <div className='text-center my-16 '>
