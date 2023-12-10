@@ -7,9 +7,12 @@ import heart from "@/app/img/heart.png";
 const FavouriteItem = () => {
   return (
     <div>
-      <div className="mt-7 pl-8 mb-5 text-2xl font-bold">
-        <span>Bất Động sản được yêu thích</span>
-      </div>
+      <div className='mt-8 mb-8 text-center'>
+            <h1 className=' font-bold text-3xl uppercase'>Bất Động sản được <span className="text-red-600">yêu thích</span></h1>
+            <h5 className='text-gray-500 mt-4'>
+            Thông tin hấp dẫn, thu hút được yêu thích nhất tại <i className="text-red-400">DreamHouse.com.vn</i>
+            </h5>
+        </div>
       <div className="float-left relative inline-block overflow-hidden object-cover group">
         <div className="relative float-left text-center">
           <div className="relative">
@@ -50,7 +53,7 @@ const FavouriteItem = () => {
             </div>
           </div>
         </div>
-        <div className="inline-block float-left ml-4 mt-2">
+        <div className="inline-block float-left ml-4 mt-4">
           <span className="text-lg font-bold ">
             Quyết định dừng cuộc chơi. Mặt phố Trần Vỹ - mặt tiền 7m - đơn giá
             305tr/m2

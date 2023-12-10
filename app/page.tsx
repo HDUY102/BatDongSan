@@ -39,7 +39,7 @@ export default function Home() {
       </div>
       <IntroDuce/>
       <div>
-        {isLoadingPost ? (
+        { isLoadingPost || isLoading ? (
           <div className="text-center text-lg">Loading...</div>
           ) : (
             <Property />

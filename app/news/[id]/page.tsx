@@ -22,11 +22,8 @@ const DetailNews = () => {
         {post?.Date?.toString()}
       </span>
       <div>
-        <span className="text-base flex ml-10 mr-14 font-light mt-3 mb-3">
-          Lên chi phí xây phòng trọ 20m2 ra sao cho hợp lý? Ở các thành phố lớn
-          như TP.HCM và Hà Nội, chi phí xây phòng trọ 20m2 thường dao động từ
-          khoảng 80 triệu đến 200 triệu đồng, tùy thuộc vào các yếu tố như vật
-          liệu, thiết kế, địa điểm, nhân công và chất lượng xây dựng.
+        <span className="text-justify flex ml-10 mr-14 font-light mt-3 mb-3" >
+          {post?.Content}
         </span>
         <Image
           className="max-w-2 rounded-lg ml-20 mr-4"
@@ -36,8 +33,8 @@ const DetailNews = () => {
           alt="Dream House IntroDuce"
         ></Image>
       </div>
-      <div className="mt-7 mb-10">
-        <span className="text-base flex ml-10 mr-14 font-light mb-3">
+      <div className="mt-7 mb-20">
+        <span className="text-justify flex ml-10 mr-14 font-light mb-3">
           Lên chi phí xây phòng trọ 20m2 ra sao cho hợp lý? Ở các thành phố lớn
           như TP.HCM và Hà Nội, chi phí xây phòng trọ 20m2 thường dao động từ
           khoảng 80 triệu đến 200 triệu đồng, tùy thuộc vào các yếu tố như vật
@@ -50,23 +47,23 @@ const DetailNews = () => {
           src={DN}
           alt="Dream House IntroDuce"
         ></Image>
-        <span className="text-base flex ml-10 mr-14 font-light mb-3">
+        <span className="text-justify flex ml-10 mr-14 font-light mb-3">
           Với diện tích 20m2, chủ nhà có thể tính toán việc thể xây nhiều loại
           hình phòng trọ. Dưới đây là một số loại hình mà chủ nhà có thể tham
           khảo:
         </span>
-        <span className="text-base flex ml-12 mr-14 font-light mb-3">
+        <span className="text-justify flex ml-12 mr-14 font-light mb-3">
           • Phòng trọ cấp 4 có gác gỗ: Đây là loại phòng trọ đơn giản, tiết kiệm
           chi phí, thích hợp với khu đất rộng để xây nhiều phòng. Phòng trọ có
           diện tích sử dụng khoảng 40m2, bao gồm phòng ngủ, bếp, nhà vệ sinh và
           ban công. Chi phí xây phòng trọ 20m2 cấp 4 có gác gỗ dao động từ 80
           triệu đến 120 triệu đồng.
         </span>
-        <span className="text-base flex ml-12 mr-14 font-light mb-3">
+        <span className="text-justify flex ml-10 mr-14 font-light mb-3">
           • Phòng trọ khép kín có gác lửng: Đây là loại phòng trọ cao cấp, có
           chất lượng hạ tầng tốt, dành cho những người có thu nhập cao.
         </span>
-        <span className="text-base flex ml-12 mr-14 font-light mb-3">
+        <span className="text-justify flex ml-10 mr-14 font-light">
           • Phòng trọ 2 tầng: Đây là loại phòng trọ đa dạng, có thể xây nhiều
           kiểu phòng khác nhau, từ bình thường đến cao cấp, tùy theo nhu cầu của
           khách hàng. Phòng trọ có diện tích sử dụng khoảng 40m2, bao gồm 2
