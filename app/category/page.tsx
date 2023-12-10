@@ -21,17 +21,18 @@ interface Property {
 }
 
 const Category = () => {
-  const {fetchData , isLoading} = usePropertyStore();
-  const { properties, getAllProperties } = usePropertyStore();
-
+  const {properties,fetchData} = usePropertyStore();
   const [propertyToList, setPropertiesToList] = useState<Property[]>([]);
   const [visibleItems, setVisibleItems] = useState<number>(3);
+
   useEffect(() => {
     fetchData();
   }, []);
+
   useEffect(() => {
     setPropertiesToList(properties.slice(0, visibleItems));
   }, [properties, visibleItems]);
+
   const handleLoadMore = () => {
     setVisibleItems((prevVisibleItems) => prevVisibleItems + 3);
   };

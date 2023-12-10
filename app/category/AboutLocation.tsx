@@ -9,10 +9,9 @@ import NT from '@/app/img/NT.png'
 const AboutLocation = () => {
   return (
     <div>
-        {/* <IntroDuce/> */}
-        <section className='text-center my-16 '>
+        <section className='text-center my-10 '>
         <div className='flex gap-x-96'>
-            <h3 className='text-gray-500 font-bold mb-4 mt-4'>Địa phương</h3>
+            <h3 className='text-gray-800 font-bold mb-4 mt-4'>Địa phương</h3>
         </div>
         <div className='grid grid-cols-2'>
             <div className='relative'>

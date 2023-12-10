@@ -1,7 +1,5 @@
 
 import React from "react";
-// import Image from "next/image";
-// import About from "@/app/img/about.jpg";
 const Detail = () => {
   return (
     <div className="carousel w-full">

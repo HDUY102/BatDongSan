@@ -15,8 +15,8 @@ const About = () => {
                 <h2 className='text-primary font-bold text-4xl italic'>Dream House</h2>
             </div>
             <div className='text-gray-500 max-w-md mx-auto mt-8 flex flex-col gap-4'>
-                <Image  className="mt-auto max-h-40 " src={about} layout='fill' objectFit="contain" alt="About Image"></Image>
-                <p className='left-0 right-0 mt-48'>
+                <Image  className="mt-auto max-h-40 mb-4  " src={about} layout='fill' objectFit="contain" alt="About Image"></Image>
+                <p className='left-0 right-0 mt-52 text-justify'>
                     Dream House là một công ty môi giới bất động sản hàng đầu, chuyên cung cấp các dịch vụ tư vấn và môi giới chuyên 
                     nghiệp để giúp khách hàng đạt được ước mơ sở hữu ngôi nhà hoàn hảo của mình. Với đội ngũ nhân viên giàu kinh nghiệm và 
                     tận tâm, chúng tôi cam kết mang đến trải nghiệm mua bán nhà mượt mà và hiệu quả. Dream House không chỉ đơn thuần là một 

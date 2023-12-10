@@ -5,11 +5,13 @@ import Link from "next/link";
 
 const AboutNews = ({ postsToList }: { postsToList: post[] }) => {
   return (
-    <Link href={'/news'} className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-3 gap-4">
       {postsToList?.map((post: post) => (
-        <NewsItem key={post.idPost} post={post} />
+        <Link key={post.idPost} href={`/news/${post.idPost}`}>
+          <NewsItem key={post.idPost} post={post} />
+        </Link>
       ))}
-    </Link>
+    </div>
   );
 };
 

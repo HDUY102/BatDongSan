@@ -1,4 +1,5 @@
-import React from 'react'
+"use client"
+import React,{useEffect,useState} from 'react'
 import Link from "next/link";
 import HeaderNav from '../components/HeaderNav'
 import ItemNew from './ItemNew'
@@ -17,19 +18,13 @@ const News = ({postsToList}: {postsToList: post[]}) => {
             phóng viên, biên tập của DreamHouse.com.vn.
             </h5>
         </div>
-        <Link href={'/news'}>
           {
             postsToList?.map((post: post) => (
-              <ItemNew key={post.idPost} post={post}/>
+              <Link key={post.idPost} href={`/news/${post.idPost}`}>
+                <ItemNew post={post}/>
+              </Link>
             ))
           }
-        </Link>
-        <div className='text-red items-center justify-center text-center mt-3'>
-            <button className='hover:bg-red-500 hover:text-white font-semibold'>
-                Xem Thêm
-            </button>
-        </div>
-        <Footer/>        
     </section>
   )
 }

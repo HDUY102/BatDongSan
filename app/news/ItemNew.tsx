@@ -16,9 +16,9 @@ const ItemNew = ({post}:{post:post}) => {
           <div className="text-black mt-4 text-2xl justify-start hover:text-gray-500">
             <h2>{post?.Title}</h2>
           </div>
-          <div className="text-gray-500 mt-2 left-0 text-xs text-left">
-            <p>{post?.Content}</p>
-          </div>
+          {post?.Content !== null ? (
+            <p className="text-gray-600 ml-4 text-sm text-left" dangerouslySetInnerHTML={{ __html: post.Content }}></p>
+          ) : null}
         </div>
       </div>
       <hr className="mt-2" />

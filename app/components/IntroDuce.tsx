@@ -1,10 +1,20 @@
-import React from 'react'
+"use client"
+import React,{useState, useEffect} from 'react'
 import Image from 'next/image'
 import IntroDuceImg from '@/app/img/IntroDuceImg.png'
 import { FaArrowCircleRight } from "react-icons/fa";
 import Link from 'next/link';
 
 const IntroDuce = () => {
+  const [hideButton, setHideButton] = useState(false);
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (currentPath === '/about') {
+      setHideButton(true);
+    } else {
+      setHideButton(false);
+    }
+  }, []);
   return (
     <section className='grid grid-cols-2 mt-1'>
         <div className='py-12'>
@@ -17,12 +27,14 @@ const IntroDuce = () => {
           tốt nhất. Hãy để Dream House là đối tác đáng tin cậy trên hành trình chinh phục ước mơ của bạn!
           </p>
           <div className='flex gap-4 text-sm'>
-            <Link href={'/about'}>
-              <button className='bg-primary flex gap-2 items-center text-white px-4 py-2 rounded-full' >
-                Learn more
-                <FaArrowCircleRight className="mt-1"/>  
-              </button>
-            </Link>
+            {!hideButton && (
+              <Link href={'/about'}>
+                <button className='bg-primary flex gap-2 items-center text-white px-4 py-2 rounded-full'>
+                  Learn more
+                  <FaArrowCircleRight className='mt-1' />
+                </button>
+              </Link>
+            )}
           </div>
         </div>
         <div className='relative'>
