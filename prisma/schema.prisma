@@ -70,7 +70,7 @@ model user {
   UserName String?    @db.VarChar(255)
   PassWord String?    @db.VarChar(255)
   Phone    Int?
-  Role     String?    @db.VarChar(255)
+  Role     Int?
   post     post[]
   property property[]
 }
