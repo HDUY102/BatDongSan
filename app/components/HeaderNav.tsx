@@ -1,10 +1,12 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/app/img/logo.png'
 import { FaHeart } from "react-icons/fa6";
-
+import { useAuth } from "@/app/lib/hooks/useAuth";
 const HeaderNav = () => {
+  const auth = useAuth();
   return (
     <div>
         {/* Page Header BEGIN */}
@@ -22,10 +24,11 @@ const HeaderNav = () => {
                 <Link className="text-white hover:text-red-500 tooltip tooltip-bottom" href={'/favourite'} data-tip="Favourite">
                   <FaHeart/>  
                 </Link>
-                <Link className="text-white hover:text-red-500 tooltip tooltip-bottom" href={'/admin'} data-tip="Favourite">
-                  <FaHeart/>  
-                </Link>
-                <Link className="bg-primary rounded-full text-white px-8 py-2 hover:bg-white hover:text-red-500 mr-3 tooltip tooltip-bottom" href={'/login'} data-tip="Login">Login</Link>
+                {auth ? (
+                   <p>logged in</p>
+                ) : (
+                  <Link className="bg-primary rounded-full text-white px-8 py-2 hover:bg-white hover:text-red-500 mr-3 tooltip tooltip-bottom" href={'/login'} data-tip="Login">Login</Link>
+                )}
             </nav>
         </header>
         {/* Page Header END */}
