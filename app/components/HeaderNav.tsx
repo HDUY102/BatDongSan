@@ -5,8 +5,16 @@ import Image from 'next/image'
 import logo from '@/app/img/logo.png'
 import { FaHeart } from "react-icons/fa6";
 import { useAuth } from "@/app/lib/hooks/useAuth";
+import { useRouter } from "next/navigation";
+
 const HeaderNav = () => {
   const auth = useAuth();
+  const router = useRouter()
+  const handleLogout = async () => {
+    const res = await fetch("/api/logout", { method: "POST" });
+    // Điều hướng hoặc thực hiện các bước xử lý khi logout thành công
+    router.push("/login");
+  };
   return (
     <div>
         {/* Page Header BEGIN */}
@@ -25,7 +33,9 @@ const HeaderNav = () => {
                   <FaHeart/>  
                 </Link>
                 {auth ? (
-                   <p>logged in</p>
+                  <button onClick={handleLogout}><p>Log out</p></button>
+                  //  <Link href={'/login'} onClick={handleLogout}><p>Log out</p></Link>
+                  // <p>Log out</p>
                 ) : (
                   <Link className="bg-primary rounded-full text-white px-8 py-2 hover:bg-white hover:text-red-500 mr-3 tooltip tooltip-bottom" href={'/login'} data-tip="Login">Login</Link>
                 )}
