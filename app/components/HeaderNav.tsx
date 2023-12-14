@@ -11,9 +11,18 @@ const HeaderNav = () => {
   const auth = useAuth();
   const router = useRouter()
   const handleLogout = async () => {
-    const res = await fetch("/api/logout", { method: "POST" });
-    // Điều hướng hoặc thực hiện các bước xử lý khi logout thành công
-    router.push("/login");
+    const res = await fetch("/api/logout", {
+      method: "POST",
+      headers:{
+        'Content-Type': 'application/json'
+      },
+    });
+    if(res.ok){
+      router.push("/login");
+    }
+    else {
+      console.error('Something went wrong:', res.statusText);
+    }
   };
   return (
     <div>

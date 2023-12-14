@@ -24,17 +24,22 @@ const UpdateArticle = () => {
     5:"Đất",
     6:"Nhà",
   };
-
+  const userMapping  : Record<number, string> ={
+    1:"Admin",
+    2:"Duy",
+    3:"Ngọc",
+    4:"Duong",
+    5:"aaad",
+    6:"Hello"    
+  };
   const post = usePostStore.getState().getPostById(idPost)[0];
 
   useEffect(() => {
     usePostStore.getState().fetchDataPosts();
-    
-  
     if (post) {
       setValue("Category_idCategory", post.Category_idCategory);
       setValue("Title", post.Title);
-      setValue("User_idUser", post.User_idUser);
+      setValue("User_idUser", userMapping[post.User_idUser]);
       setContent(post.Content || '');
     }
   }, [idPost]);
@@ -48,9 +53,18 @@ const UpdateArticle = () => {
       "Đất": 5,
       "Nhà": 6,
     };
+    const userMapping  : Record<string, number> ={
+      "Admin": 1,
+      "Duy": 2,
+      "Ngọc": 3,
+      "Duong": 4,
+      "aaad": 5,
+      "Hello": 6    
+    };
     const categoryKey: string = data.Category_idCategory;
+    const userKey: string = data.User_idUser;
     const formValues = {
-      User_idUser: Number.parseInt(data.User_idUser),
+      User_idUser: userMapping[userKey],
       Category_idCategory:  categoryMapping[categoryKey],
       Title: data.Title,
       Content: Content,
@@ -101,8 +115,8 @@ const UpdateArticle = () => {
               <input {...register("Title")} defaultValue={post && post.Title ? post.Title  : ""} type="text" placeholder="Tiêu đề" className="input input-bordered  max-w-xs" />
             </div>
             <div>
-              <h3 className="text-right">Mã người đăng bài</h3>
-             <input {...register("User_idUser")}  defaultValue={post ? post.User_idUser : ""} type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
+              <h3 className="text-right">Tên người đăng bài</h3>
+             <input {...register("User_idUser")}  defaultValue={post ? userMapping[post.User_idUser] : ""}  type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
             </div>
           </div> 
           <h3 className='mt-3 ml-4'>Nội dung</h3> 

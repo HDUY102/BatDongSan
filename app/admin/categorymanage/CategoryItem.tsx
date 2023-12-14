@@ -1,13 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const CategoryItem = ({
-  caterory,
-  onDelete,
-}: {
-  caterory: any;
-  onDelete: (id: number) => void;
-}) => {
+const CategoryItem = ({caterory,onDelete}:{caterory: any; onDelete: (id: number) => void}) => {
   const handleDelete = () => {
     const shouldDelete = window.confirm("Bạn thực sự muốn xóa?");
     if (shouldDelete) {
@@ -21,15 +15,13 @@ const CategoryItem = ({
           <td>{caterory.idCategory}</td>
           <td>{caterory.categoryName}</td>
           <td className="text-white flex ">
-            <button
-              onClick={handleDelete}
+            <button onClick={handleDelete}
               className="text-red-400 border-none w-5 hover:text-red-500"
             >
               Xóa
             </button>
             <Link
-              href={`/admin/articlemanage/updatearticle/${caterory.idCategory}`}
-            >
+              href={`/admin/categorymanage/update/${caterory.idCategory}`}>
               <button className="text-green-400 border-none hover:text-green-500">
                 Sửa
               </button>
