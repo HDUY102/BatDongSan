@@ -18,17 +18,18 @@ const UpdateArticle = () => {
   const idPost = Array.isArray(id) ? parseInt(id[0]) : parseInt(id as string);
   const categoryMapping  : Record<number, string> ={
     1:"Thuê",
-    2:"Mua",
+    2:"Căn hộ",
     3:"Bán",
     4:"Dự án",
     5:"Đất",
     6:"Nhà",
+    9: "Quảng Cáo"
   };
   const userMapping  : Record<number, string> ={
-    1:"Admin",
+    1:"admin",
     2:"Duy",
     3:"Ngọc",
-    4:"Duong",
+    4:"Dương",
     5:"aaad",
     6:"Hello"    
   };
@@ -45,27 +46,28 @@ const UpdateArticle = () => {
   }, [idPost]);
 
   const onSubmit = async (data:any) => {
-    const categoryMapping  : Record<string, number> ={
+    const categoryToIdMapping  : Record<string, number> ={
       "Thuê": 1,
-      "Mua": 2,
+      "Căn hộ": 2,
       "Bán": 3,
       "Dự án": 4,
       "Đất": 5,
       "Nhà": 6,
+      "Quảng Cáo":9
     };
     const userMapping  : Record<string, number> ={
-      "Admin": 1,
+      "admin": 1,
       "Duy": 2,
       "Ngọc": 3,
-      "Duong": 4,
+      "Dương": 4,
       "aaad": 5,
       "Hello": 6    
     };
-    const categoryKey: string = data.Category_idCategory;
+    const categoryKey: string = data.Category_idCategory ;
     const userKey: string = data.User_idUser;
     const formValues = {
       User_idUser: userMapping[userKey],
-      Category_idCategory:  categoryMapping[categoryKey],
+      Category_idCategory:  categoryToIdMapping[categoryKey] || parseInt(categoryKey),
       Title: data.Title,
       Content: Content,
     }

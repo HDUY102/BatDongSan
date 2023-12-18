@@ -12,33 +12,36 @@ import 'react-datepicker/dist/react-datepicker.css';
 const AddArticle = () => {
   const [Content, setContent] = useState('');
   const router = useRouter();
-  const categoryMapping  : Record<string, number> ={
-    "Thuê": 1,
-    "Mua": 2,
-    "Bán": 3,
-    "Dự án": 4,
-    "Đất": 5,
-    "Nhà": 6,
-  };
-  const userMapping  : Record<string, number> ={
-    "Admin": 1,
-    "Duy": 2,
-    "Ngọc": 3,
-    "Duong": 4,
-    "aaad": 5,
-    "Hello": 6    
-  };
+  
   const { register, handleSubmit, formState:{ errors } } = useForm();
   const onSubmit = async (data:any) => {
+    const categoryMapping  : Record<string, number> ={
+      "Thuê": 1,
+      "Căn hộ": 2,
+      "Bán": 3,
+      "Dự án": 4,
+      "Đất": 5,
+      "Nhà": 6,
+      "Quảng Cáo":9
+    };
+    const userMapping  : Record<string, number> ={
+      "admin": 1,
+      "Duy": 2,
+      "Ngọc": 3,
+      "Dương": 4,
+      "aaad": 5,
+      "Hello": 6    
+    };
     const categoryKey: string = data.Category_idCategory;
     const userKey: string = data.User_idUser;
     const formValues = {
-      // User_idUser: userMapping[userKey],
-      User_idUser: data.User_idUser,
+      User_idUser: userMapping[userKey],
       Category_idCategory:  categoryMapping[categoryKey],
       Title: data.Title,
       Content: Content,
     }
+    console.log("Category_idCategory:", data.Category_idCategory);
+
     console.log(formValues)
     const respone = await fetch("http://localhost:3000/api/article/add",{
       method: 'POST',
