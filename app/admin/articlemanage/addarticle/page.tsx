@@ -33,7 +33,8 @@ const AddArticle = () => {
     const categoryKey: string = data.Category_idCategory;
     const userKey: string = data.User_idUser;
     const formValues = {
-      User_idUser: userMapping[userKey],
+      // User_idUser: userMapping[userKey],
+      User_idUser: data.User_idUser,
       Category_idCategory:  categoryMapping[categoryKey],
       Title: data.Title,
       Content: Content,
@@ -87,7 +88,7 @@ const AddArticle = () => {
             </div>
             <div>
               <h3 className="text-right">Tên người đăng bài</h3>
-             <input {...register("User_idUser")} type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
+             <input {...register("User_idUser")} type="text" placeholder="Tên người đăng bài" className="input input-bordered  max-w-xs text-right" />
             </div>
           </div> 
           <h3 className='mt-3 ml-4'>Nội dung</h3> 

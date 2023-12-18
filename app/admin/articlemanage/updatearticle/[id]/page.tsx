@@ -116,7 +116,7 @@ const UpdateArticle = () => {
             </div>
             <div>
               <h3 className="text-right">Tên người đăng bài</h3>
-             <input {...register("User_idUser")}  defaultValue={post ? userMapping[post.User_idUser] : ""}  type="text" placeholder="Mã người đăng bài" className="input input-bordered  max-w-xs" />
+             <input {...register("User_idUser")}  defaultValue={post ? userMapping[post.User_idUser] : ""}  type="text" placeholder="Tên người đăng bài" className="input input-bordered text-right max-w-xs" />
             </div>
           </div> 
           <h3 className='mt-3 ml-4'>Nội dung</h3> 
