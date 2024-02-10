@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import logo from '@/app/img/logo.png'
-import { FaHome,FaFile,FaOutdent,FaPoll,FaSignOutAlt  } from "react-icons/fa";
+import { FaHome,FaFile,FaOutdent,FaPoll,FaSignOutAlt,FaUserFriends   } from "react-icons/fa";
 
 const SideBar = () => {
   return (
@@ -23,6 +23,10 @@ const SideBar = () => {
           <div className='flex items-center hover:text-primary'>
             <FaOutdent/>
             <a className='ml-2' href="/admin/categorymanage">Quản lý danh mục</a>
+          </div>
+          <div className='flex items-center hover:text-primary'>
+            <FaUserFriends/>
+            <a className='ml-2' href="/admin/accountmanage">Quản lý tài khoản</a>
           </div>
           <div className='flex items-center hover:text-primary'>
             <FaPoll/>
