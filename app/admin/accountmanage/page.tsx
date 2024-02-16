@@ -6,10 +6,10 @@ import { useUserStore } from "@/app/lib/hooks/useUserStore";
 import ListAccount from "./ListAccount";
 
 const Accountmanage = () => {
-  const { fetchDataUser, isLoadingUser } = useUserStore();
+  const { fetchDataUsers, isLoadingUser } = useUserStore();
 
   useEffect(() => {
-    fetchDataUser();
+    fetchDataUsers();
   }, []);
 
   return (

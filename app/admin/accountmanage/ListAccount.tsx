@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import AccountList from "./AccountList";
 import { useUserStore } from "@/app/lib/hooks/useUserStore";
 
-const ListUser = () => {
-  const { accounts } = useUserStore();
-  const [userToList] = useState(accounts);
+const ListAccount = () => {
+  const { users } = useUserStore();
+  const [userToList] = useState(users);
 
   const handleDelete = async (id: number) => {
     const response = await fetch(`/admin/accountmanage/api/${id}`, {
@@ -25,4 +25,4 @@ const ListUser = () => {
   );
 };
 
-export default ListUser;
+export default ListAccount;

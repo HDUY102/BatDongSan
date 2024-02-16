@@ -1,41 +1,41 @@
 import { create } from "zustand";
-import {user} from "@prisma/client"
+import {user} from "@prisma/client";
 interface State {
-  accounts: user[];
+  users: user[];
   isLoadingUser: boolean;
 }
 
 interface Actions {
   getAllUsers: () => user[];
   getUserById: (id:any) => user[];
-  fetchDataUser: () => Promise<void>;
-  setUsers: (tasks: State["accounts"]) => void;
+  fetchDataUsers: () => Promise<void>;
+  setUsers: (tasks: State["users"]) => void;
 }
 
 const INITIAL_STATE: State = {
-  accounts: [],
+  users: [],
   isLoadingUser: false,
 };
 
 export const useUserStore = create<State & Actions>((set, get) => ({
-  accounts: INITIAL_STATE.accounts,
+  users: INITIAL_STATE.users,
   isLoadingUser: INITIAL_STATE.isLoadingUser,
   getAllUsers: () => {
-    return get().accounts;
+    return get().users;
   },
   getUserById: (id) =>{
     let idCheck = parseInt(id)
-    return get().accounts.filter((property: user) => property.idUser === idCheck);
+    return get().users.filter((user: user) => user.idUser === idCheck);
   },
-  setUsers: (accounts) => set(() => ({ accounts: accounts })),
-  fetchDataUser: async () => {
+  setUsers: (users) => set(() => ({ users: users })),
+  fetchDataUsers: async () => {
     try {
       set({ isLoadingUser: true });
-      const response = await fetch("http://localhost:3000/api/account", {
+      const response = await fetch("http://localhost:3000/api/user", {
         cache: "no-store",
       });
       const data = await response.json();
-      set({ accounts: data, isLoadingUser: false });
+      set({ users: data, isLoadingUser: false });
     } catch (error) {}
   },
 }));

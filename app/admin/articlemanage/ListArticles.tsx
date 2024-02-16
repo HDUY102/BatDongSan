@@ -4,12 +4,9 @@ import ArticleList from './ArticleList';
 import { usePostStore } from '@/app/lib/hooks/usePostStore';
 
 const ListArticles = () => {
-  const { posts, getAllPosts } = usePostStore();
-  const [postsToList, setPostsToList] = useState(posts);
+  const { posts } = usePostStore();
+  const [postsToList] = useState(posts);
 
-  function getAllPostsToList() {
-    setPostsToList(getAllPosts);
-  }
   const handleDelete = async (id: number) => {
     const response = await fetch(`/admin/articlemanage/api/${id}`, {
       method: 'DELETE',

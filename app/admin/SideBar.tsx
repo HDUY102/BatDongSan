@@ -34,7 +34,7 @@ const SideBar = () => {
           </div>
           <div className='flex items-center hover:text-primary '>
             <FaSignOutAlt/>
-            <a className='ml-2' href={'/login'}>Đăng xuất</a>
+            <a className='ml-2' href={'/login'}>Trang chủ</a>
         </div>
         </div>
         
