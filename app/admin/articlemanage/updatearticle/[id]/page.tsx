@@ -28,10 +28,11 @@ const UpdateArticle = () => {
   const userMapping  : Record<number, string> ={
     1:"admin",
     2:"Duy",
-    3:"Ngọc",
-    4:"Dương",
+    3:"Huy",
+    4:"Hậu",
     5:"aaad",
-    6:"Hello"    
+    6:"Hello",
+    7:"Thắng"    
   };
   const post = usePostStore.getState().getPostById(idPost)[0];
 
@@ -58,10 +59,11 @@ const UpdateArticle = () => {
     const userMapping  : Record<string, number> ={
       "admin": 1,
       "Duy": 2,
-      "Ngọc": 3,
-      "Dương": 4,
+      "Huy": 3,
+      "Hậu": 4,
       "aaad": 5,
-      "Hello": 6    
+      "Hello": 6,
+      "Thắng": 7    
     };
     const categoryKey: string = data.Category_idCategory ;
     const userKey: string = data.User_idUser;

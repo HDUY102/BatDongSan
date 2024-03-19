@@ -27,10 +27,11 @@ const AddArticle = () => {
     const userMapping  : Record<string, number> ={
       "admin": 1,
       "Duy": 2,
-      "Ngọc": 3,
-      "Dương": 4,
+      "Huy": 3,
+      "Hậu": 4,
       "aaad": 5,
-      "Hello": 6    
+      "Hello": 6,
+      "Thắng": 7    
     };
     const categoryKey: string = data.Category_idCategory;
     const userKey: string = data.User_idUser;
